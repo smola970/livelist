@@ -1,0 +1,12 @@
+<%= form_for @goal do |f| %>
+  <p>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, Category.types %>
+  </p>
+  <button>Add Goal</button>
+<% end %>
+

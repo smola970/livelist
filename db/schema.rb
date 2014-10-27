@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20141027044015) do
   enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20141027044015) do
     t.string   "display_name"
     t.string   "email"
     t.string   "instagram_id"
+    t.string   "profile_image_url"
+    t.string   "cover_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,6 +6,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @goals = Goal.where(:list_id => params[:id])
+    session[:list_id] = params[:id]
   end
 
   def new

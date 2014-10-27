@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :display_name
       t.string :email
       t.string :instagram_id
+      t.string :profile_image_url
+      t.string :cover_image_url
 
       t.timestamps
     end
