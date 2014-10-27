@@ -16,5 +16,4 @@ get '/manage_lists' => 'lists#index'
 
 resources :lists
 
-
 end

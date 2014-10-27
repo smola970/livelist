@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = List.where(:user_id => params[:id])
+    @lists = List.where(:user_id => current_user.id)
   end
 
   def show
@@ -14,6 +14,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.user_id = current_user.id
     if @list.save
       redirect_to '/manage_lists'
     else
@@ -40,7 +41,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :user_id)
+    params.require(:list).permit(:name)
   end
 
 end

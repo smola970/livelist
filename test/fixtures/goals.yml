@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  original_goal_id: 1
+  text: MyString
+  list_id: 1
+  category_id: 1
+  complete: false
+  image_url: MyString
+  caption: MyString
+
+two:
+  original_goal_id: 1
+  text: MyString
+  list_id: 1
+  category_id: 1
+  complete: false
+  image_url: MyString
+  caption: MyString
