@@ -1,0 +1,10 @@
+<h1>My livelists</h1>
+
+<% @lists.each do |list| %>
+<p><%= list.name %></p>
+<p><%= link_to 'show', list %></p>
+<p><%= link_to 'edit', edit_list_path(list) %></p>
+<p><%= link_to 'delete', list, :method => :delete, :data => { :confirm => 'are you sure you want to delete this list?' } %></p>
+<% end %>
+
+<p><%= link_to 'new list', '/lists/new' %></p>

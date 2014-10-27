@@ -6,4 +6,10 @@ class PagesController < ApplicationController
   def about
   end
 
+  def browse_global
+  end
+
+  def friends
+  end
+
 end
