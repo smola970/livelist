@@ -1,3 +1,14 @@
 <h1>Create New goal</h1>
 
-<%= render 'form' %>
+<%= form_for @goal do |f| %>
+  <p>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, Category.types %>
+  </p>
+  <button>Submit</button>
+<% end %>
+<p><%= link_to 'back', :back %></p>

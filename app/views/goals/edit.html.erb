@@ -1,3 +1,26 @@
 <h1>Edit Goal</h1>
 
-<%= render 'form' %>
+<%= form_for @goal do |f| %>
+  <p>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </p>
+
+
+  <% if @goal.complete == true %>
+  <p>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+  </p>
+  <p>
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </p>
+
+  <% end %>
+
+
+  <button>Update</button>
+<% end %>
+
+<p><%= link_to 'back', :back %></p>

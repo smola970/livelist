@@ -1,12 +1,12 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = List.where(:user_id => current_user.id)
+    @lists = List.where(:user_id => current_user.id).order("created_at")
   end
 
   def show
     @list = List.find(params[:id])
-    @goals = Goal.where(:list_id => params[:id])
+    @goals = Goal.where(:list_id => params[:id]).order("created_at")
     session[:list_id] = params[:id]
   end
 

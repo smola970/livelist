@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   # resources :users do
     resources :lists
   resources :goals
+
+  get '/goals/:id/completed' => 'goals#completed_edit'
+  post '/goals/:id/completed' => 'goals#completed_update' , as: 'completed_update'
 end
 #         Prefix Verb   URI Pattern                              Controller#Action
 #           root GET    /                                        pages#index

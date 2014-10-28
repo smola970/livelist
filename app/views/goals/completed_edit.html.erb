@@ -1,0 +1,15 @@
+<h1>Congratulations! You have completed this goal.</h1>
+
+<%= form_for @goal, :url => completed_update_path, :method => 'post' do |f| %>
+  <p>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+  </p>
+  <p>
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </p>
+  <button>Submit</button>
+<% end %>
+<p><%= link_to 'back', :back %></p>
+
