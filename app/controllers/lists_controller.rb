@@ -6,7 +6,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @goals = Goal.where(:list_id => params[:id]).order("created_at")
+    @goals_to_do = Goal.where(:list_id => params[:id], complete: false).order("created_at")
+    @goals_completed = Goal.where(:list_id => params[:id], complete: true).order("updated_at").reverse
     session[:list_id] = params[:id]
   end
 

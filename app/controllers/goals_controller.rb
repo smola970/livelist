@@ -16,9 +16,8 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     @goal.list_id = session[:list_id]
+    @goal.complete = false
     if @goal.save
-      @goal.original_goal_id = @goal.id
-      @goal.save
       session[:list_id] = nil
       redirect_to list_path(@goal.list_id)
     else

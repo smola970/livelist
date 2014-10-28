@@ -1,6 +1,8 @@
 <h1><%= @list.name %></h1>
 
-<% @goals.each do |goal| %>
+<p>Goals to do:</p>
+
+<% @goals_to_do.each do |goal| %>
 <p><%= goal.text %></p>
 <p><%= link_to 'tick', "/goals/#{goal.id}/completed" %></p>
 <p><%= link_to 'show', goal %></p>
@@ -10,3 +12,13 @@
 
 <p><%= link_to 'new goal', new_goal_path %></p>
 <p><%= link_to 'back', lists_path %></p>
+
+
+<p>Goals completed</p>
+<% @goals_completed.each do |goal| %>
+<img src="<%= goal.image_url %>" alt="">
+<p><%= goal.text %></p>
+<p><%= link_to 'show', goal %></p>
+<p><%= link_to 'edit', edit_goal_path(goal) %></p>
+<p><%= link_to 'delete', goal, :method => :delete, :data => { :confirm => 'are you sure you want to delete this goal?' } %></p>
+<% end %>
