@@ -1,6 +1,22 @@
 <h1><%= @user.display_name %></h1>
-
+ <p>Lists:</p>
 <% @lists.each do |list| %>
 <p><%= list.name %></p>
+<% end %>
+
+<p>Goals to do:</p>
+
+<% @goals_to_do.each do |goal| %>
+<p><%= goal.text %></p>
+<p><%= link_to 'show', goal %></p>
+<p><%= link_to 'add', "/goals/#{goal.id}/clone" %></p>
+<% end %>
+
+<p>Goals Completed:</p>
+<% @goals_completed.each do |goal| %>
+<img src="<%= goal.image_url %>" alt="">
+<p><%= goal.text %></p>
+<p><%= link_to 'show', goal %></p>
+<p><%= link_to 'add', "/goals/#{goal.id}/clone" %></p>
 <% end %>
 

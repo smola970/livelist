@@ -8,9 +8,10 @@
 
 
   <% if @goal.complete == true %>
+  <img src="<%= @goal.image_url %>" alt="">
   <p>
     <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
+    <%= f.file_field :image_url %>
   </p>
   <p>
     <%= f.label :caption %>

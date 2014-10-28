@@ -3,7 +3,7 @@
 <%= form_for @goal, :url => completed_update_path, :method => 'post' do |f| %>
   <p>
     <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
+    <%= f.file_field :image_url %>
   </p>
   <p>
     <%= f.label :caption %>

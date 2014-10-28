@@ -17,6 +17,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @lists = List.where(:user_id => params[:id]).order("created_at")
+    @goals = Goal.where(:user_id => params[:id]).order("created_at")
+    @goals_to_do = Goal.where(:user_id => params[:id], complete: false).order("created_at").reverse
+    @goals_completed = Goal.where(:user_id => params[:id], complete: true).order("updated_at").reverse
   end
 
   private

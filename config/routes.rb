@@ -14,13 +14,16 @@ Rails.application.routes.draw do
 
   get '/manage_lists' => 'lists#index'
 
+  get '/goals/:id/completed' => 'goals#completed_edit'
+  post '/goals/:id/completed' => 'goals#completed_update' , as: 'completed_update'
+  get '/goals/:id/clone' => 'goals#new_clone' , as: 'new_goal_clone'
+  post '/goals/:id/clone' => 'goals#create_clone' , as: 'create_goal_clone'
 
   resources :lists
   resources :goals
   resources :users
 
-  get '/goals/:id/completed' => 'goals#completed_edit'
-  post '/goals/:id/completed' => 'goals#completed_update' , as: 'completed_update'
+
 end
 #           Prefix Verb   URI Pattern                    Controller#Action
 #             root GET    /                              pages#index

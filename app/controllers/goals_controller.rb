@@ -33,14 +33,21 @@ class GoalsController < ApplicationController
 
   def create_clone
     @goal = Goal.find(params[:id])
-    goal_attributes = @goal.attributes
     @goal_clone = Goal.new
-    @goal_clone.text = goal_attributes.text
-    @goal_clone.original_goal_id = goal_attributes.original_goal_id
-    @goal_clone.category_id = goal_attributes.category_id
-
-    if @goal_new.save
-      redirect_to list_goal_path(params[:list_id], @goal_new.id)
+    @goal_clone.user_id = session[:user_id]
+    @goal_clone.text = @goal.text
+    if @goal.original_goal_id
+      @goal_clone.original_goal_id = @goal.original_goal_id
+    else
+      @goal_clone.original_goal_id = @goal.id
+    end
+    @goal_clone.category_id = @goal.category_id
+    @goal_clone.list_id= params[:goal][:list_id]
+    @goal_clone.complete = false
+    if @goal_clone.save
+      redirect_to root_path
+    else
+      render :new_clone
     end
   end
 

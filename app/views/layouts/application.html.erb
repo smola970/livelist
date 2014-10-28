@@ -15,11 +15,11 @@
     <ul>
       <li><%= link_to 'home', root_path %></li>
       <% if logged_in? %>
+      <li><%= link_to 'my profile', user_path(current_user.id) %></li>
       <li><%= link_to 'logout', logout_path, :method => :delete, :data => { :confirm => 'are you sure?' } %></li>
       <% else %>
       <li><%= link_to 'login', login_path %></li>
       <% end %>
-      <li><%= link_to 'my_profile', user_path(current_user.id) if current_user %></li>
     </ul>
   </nav>
 
