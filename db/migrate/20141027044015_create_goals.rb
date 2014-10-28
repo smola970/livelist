@@ -3,6 +3,7 @@ class CreateGoals < ActiveRecord::Migration
     create_table :goals do |t|
       t.integer :original_goal_id
       t.string :text
+      t.integer :user_id
       t.integer :list_id
       t.integer :category_id
       t.boolean :complete

@@ -15,6 +15,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.user_id = session[:user_id]
     @goal.list_id = session[:list_id]
     @goal.complete = false
     if @goal.save

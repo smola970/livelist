@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @lists = List.where(:user_id => params[:id]).order("created_at")
+  end
+
   private
 
   def user_params

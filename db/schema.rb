@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141027044015) do
   create_table "goals", force: true do |t|
     t.integer  "original_goal_id"
     t.string   "text"
+    t.integer  "user_id"
     t.integer  "list_id"
     t.integer  "category_id"
     t.boolean  "complete"
