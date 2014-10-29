@@ -60,9 +60,11 @@ ActiveRecord::Schema.define(version: 20141028225641) do
     t.string   "password_digest"
     t.string   "display_name"
     t.string   "email"
-    t.string   "instagram_id"
     t.string   "profile_image_url"
     t.string   "cover_image_url"
+    t.string   "instagram_username"
+    t.integer  "instagram_id"
+    t.string   "instagram_profile_image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

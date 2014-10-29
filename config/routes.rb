@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   post '/follows/:id' => 'follows#create', as: 'follow_user'
   delete '/follows/:id' => 'follows#destroy', as: 'unfollow_user'
 
+  get '/oauth/connect' => 'callback#connect'
+  get '/oauth/callback' => 'callback#callback'
 
 
 

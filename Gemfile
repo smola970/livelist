@@ -43,6 +43,7 @@ gem 'rails_12factor', group: :production
 gem "mini_magick", "~> 4.0.0.rc"
 
 gem "acts_as_follower"
+gem 'instagram'
 
 # Use unicorn as the app server
 # gem 'unicorn'

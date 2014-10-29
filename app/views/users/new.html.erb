@@ -5,7 +5,7 @@
 <%= form_for @user, url: '/sign_up' do |f| %>
 <p>
   <%= f.label :display_name %>
-  <%= f.text_field :display_name %>
+  <%= f.text_field :display_name, :required => true %>
 </p>
 <p>
   <%= f.label :email %>
@@ -13,15 +13,15 @@
 </p>
 <p>
   <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, :required => true %>
 </p>
 <p>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, :required => true %>
 </p>
 <p>
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation, :required => true %>
 </p>
 
 <button>Sign Up</button>

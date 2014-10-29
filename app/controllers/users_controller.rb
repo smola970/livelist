@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to '/', :notice => 'Congratulations! You have successfully created an account for livelist.'
+      redirect_to '/friends', :notice => 'Congratulations! You have successfully created an account for livelist.'
     else
       render :new
     end
