@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :lists
 
+  acts_as_followable
+  acts_as_follower
+
   validates :username, :uniqueness => true
   validates :username, :presence => true
   # validates :username, :length => { :in => 5..30 :message => "Your username must be between five and thirty characters" }

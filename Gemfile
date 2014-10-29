@@ -40,6 +40,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave' #filecarrier
 gem 'cloudinary'
 gem 'rails_12factor', group: :production
+gem "mini_magick", "~> 4.0.0.rc"
+
+gem "acts_as_follower"
 
 # Use unicorn as the app server
 # gem 'unicorn'

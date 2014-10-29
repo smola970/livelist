@@ -10,6 +10,7 @@ Category.destroy_all
 
 User.create username: 'lauren.smolenski' , password: 'ilovecake' , display_name: 'Lauren Smolenski' , email: 'lauren@smolenski.net.nz' , :password_confirmation => 'ilovecake'
 
+User.create username: 'test.account' , password: 'ilovecake' , display_name: 'Test Account' , email: 'test@account.net.nz' , :password_confirmation => 'ilovecake'
 
 %w(travel adventure career fitness/health self-development spiritual ethical/community romance other ).each do |name|
     Category.create name: name
