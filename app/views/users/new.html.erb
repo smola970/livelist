@@ -1,28 +1,40 @@
-<h1>Sign Up</h1>
-<% if @user && !@user.errors.empty? %>
- <%= @user.errors.full_messages %>
-<% end %>
-<%= form_for @user, url: '/sign_up' do |f| %>
-<p>
-  <%= f.label :display_name %>
-  <%= f.text_field :display_name, :required => true %>
-</p>
-<p>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</p>
-<p>
-  <%= f.label :username %>
-  <%= f.text_field :username, :required => true %>
-</p>
-<p>
-  <%= f.label :password %>
-  <%= f.password_field :password, :required => true %>
-</p>
-<p>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :required => true %>
-</p>
+<div class="login_page_container">
+  <div class="login_head">
+    <h1>livelist.</h1>
+    <h2>The social app to track the things you want to do in life</h2>
+  </div>
 
-<button>Sign Up</button>
-<% end %>
+  <div class="sign_up">
+    <h1>Sign Up</h1>
+    <% if @user && !@user.errors.empty? %>
+     <%= @user.errors.full_messages %>
+    <% end %>
+    <div class="sign_up_form">
+      <%= form_for @user, url: '/sign_up' do |f| %>
+      <p>
+        <%= f.label :display_name, 'Full Name' %>
+        <%= f.text_field :display_name, :required => true %>
+      </p>
+      <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :username %>
+        <%= f.text_field :username, :required => true %>
+      </p>
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password, :required => true %>
+      </p>
+      <p>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, :required => true %>
+      </p>
+    </div>
+
+    <button class="login_button">Sign Up</button>
+    <% end %>
+    <a href="/login"><button class="white" >I already have a login</button></a>
+  </div>
+</div>

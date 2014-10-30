@@ -4,8 +4,15 @@
 
 <a href="/oauth/connect">Connect with Instagram</a>
 
-<p>Your Friends</p>
+<p>Following <%= current_user.all_follows.size %></p>
 
-<% @friends.each do |friend| %>
-<p><%= friend[:display_name] %></p>
+
+<% current_user.all_follows.each do |user| %>
+<img src="<%= User.find(user.followable_id).profile_image_url %>">
+<a href="/users/<%= User.find(user.followable_id).id %> "><%= User.find(user.followable_id).display_name %></a>
 <% end %>
+
+<% if current_user.follow_count == 0 %>
+  <p>You aren't following anyone yet. Connect with you friends who are using this app through instagram!</p>
+<% end %>
+

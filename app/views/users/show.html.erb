@@ -1,3 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livelist</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="nav_bar">
+
+        <p class="nav_logo"><%= link_to 'livelist.', root_path %></p>
+
+
+        <nav>
+          <ul>
+            <li class="current_user">logged in as <%= current_user.username %></li>
+            <li><%= link_to 'my profile', user_path(current_user.id) %></li>
+            <li><%= link_to 'logout', logout_path, :method => :delete, :data => { :confirm => 'are you sure?' } %></li>
+          </ul>
+        </nav>
+
+    </div>
+
+<div>
+  <img src="<% @user.cover_image_url %>" alt="">
+  <% if current_user.id == @user.id %>
+  <button>Change Cover Photo</button>
+  <% end %>
+</div>
+<div>
+  <img src="<%= @user.profile_image_url %>" alt="">
+  <% if current_user.id == @user.id %>
+  <button>Change Profile Picture</button>
+  <% end %>
+</div>
+
 <h1><%= @user.display_name %></h1>
 
 <p>Following: <%= @user.follow_count %></p>
@@ -30,4 +70,7 @@
 <% else %>
   <p><%= link_to "Unfollow", unfollow_user_path(@user), :method => 'delete' %></p>
 <% end %>
+
+</body>
+</html>
 

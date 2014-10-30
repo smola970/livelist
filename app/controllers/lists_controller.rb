@@ -38,6 +38,10 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
+    @goals = Goal.where(:list_id => params[:id])
+    @goals.each do |goal|
+      goal.destroy
+    end
     redirect_to '/manage_lists'
   end
 

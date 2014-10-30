@@ -1,9 +1,16 @@
 <h1>Clone</h1>
 
-<%= form_for @goal, :url => create_goal_clone_path, :method => 'post' do |f| %>
-  <p>
-    <%= f.label :list_id %>
-    <%= f.collection_select(:list_id, List.where(:user_id => current_user.id), :id, :name) %>
-  </p>
-  <button>Add</button>
+<% if @count != nil %>
+
+  <%= form_for @goal, :url => create_goal_clone_path, :method => 'post' do |f| %>
+    <p>
+      <%= f.label :list_id %>
+      <%= f.collection_select(:list_id, List.where(:user_id => current_user.id), :id, :name) %>
+    </p>
+    <button>Add</button>
+  <% end %>
+
+<% else %>
+  <p>You don't have any lists to add this goal to! Create a new livelist by going to 'My livelists'.</p>
 <% end %>
+

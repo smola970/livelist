@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @goals = Goal.where(:user_id => params[:id]).order("created_at")
     @goals_to_do = Goal.where(:user_id => params[:id], complete: false).order("created_at").reverse
     @goals_completed = Goal.where(:user_id => params[:id], complete: true).order("updated_at").reverse
+    render layout: false
   end
 
   private

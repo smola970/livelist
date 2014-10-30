@@ -1,2 +1,37 @@
-<h1>Home</h1>
+<div class="newsfeed_container">
 
+  <div class="goals_complete">
+    <h3>recent activity</h3>
+    <% @goals_completed.each do |goal| %>
+      <div class="activity">
+        <div class="user">
+            <img class="mini_profile_pic" src="<%= user = User.where(:id => goal.user_id).first.profile_image_url %>" alt="">
+            <div class="user_div">
+              <a class="user_name" href="/users/<%= User.where(:id => goal.user_id).first.id %>"><%= user = User.where(:id => goal.user_id).first.display_name %></a>
+            </div>
+          </div>
+        <p><i class="fa fa-check-square"></i> <%= goal.text %> <a class="add" href="/goals/<%= goal.id %>/clone"><i class="fa fa-plus"></i> add</a></p>
+        <img src="<%= goal.image_url %>" alt="">
+      </div>
+    <% end %>
+  </div>
+
+  <div class="goals_to_do">
+    <div class="item">
+      <h3>friends recently added goals</h3>
+    </div>
+    <% @goals_to_do.each do |goal| %>
+      <div class="item">
+        <div class="user">
+          <img class="mini_profile_pic" src="<%= user = User.where(:id => goal.user_id).first.profile_image_url %>" alt="">
+          <div class="user_div">
+            <a class="user_name" href="/users/<%= User.where(:id => goal.user_id).first.id %>"><%= user = User.where(:id => goal.user_id).first.display_name %></a>
+          </div>
+        </div>
+        <p><i class="fa fa-square"></i> <%= goal.text %></p>
+        <a class="add" href="/goals/<%= goal.id %>/clone"><i class="fa fa-plus"></i> add</a>
+      </div>
+    <% end %>
+  </div>
+
+</div>

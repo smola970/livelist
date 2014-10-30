@@ -1,9 +1,6 @@
 class CallbackController < ApplicationController
 
 
-
-
-
   def auth
     '<a href="/oauth/connect">Connect with Instagram</a>'
   end
@@ -24,9 +21,12 @@ class CallbackController < ApplicationController
     callback_url = "http://localhost:3000/oauth/callback"
     response = Instagram.get_access_token(params[:code], :redirect_uri => callback_url)
     current_user.update(:instagram_username => response.user.username, :instagram_id => response.user.id.to_i, :instagram_profile_image => response.user.profile_picture )
+    if current_user.profile_image_url == nil
+      current_user.update(:profile_image_url => response.user.profile_picture)
+    end
     current_user.save
     session[:access_token] = response.access_token
-    redirect_to '/friends'
+    redirect_to '/follow_friends'
 
   end
 
@@ -48,3 +48,8 @@ end
     # config.client_id = "b76260d1f4c14d6ebbaaa66890fdeb8a"
 
     # config.access_token = "1542200907.b76260d.73f500b6f24d41d3a12d12e38ab52180"
+
+
+
+
+

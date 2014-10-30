@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/browse_global' => 'pages#browse_global'
   get '/friends' => 'pages#friends'
+  get '/follow_friends' => 'pages#follow_friends'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

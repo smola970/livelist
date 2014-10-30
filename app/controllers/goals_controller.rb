@@ -27,6 +27,8 @@ class GoalsController < ApplicationController
   end
 
   def new_clone
+    @count = List.where(:user_id => current_user.id).count
+
     @goal = Goal.find(params[:id])
     @goal_clone = Goal.new
   end

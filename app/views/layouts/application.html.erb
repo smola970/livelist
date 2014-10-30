@@ -2,35 +2,43 @@
 <html>
 <head>
   <title>Livelist</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <% if logged_in? %>
-  <p>logged in as <%= current_user.username %></p>
+    <div class="nav_bar">
+
+        <p class="nav_logo"><%= link_to 'livelist.', root_path %></p>
+
+
+        <nav>
+          <ul>
+            <li class="current_user">logged in as <%= current_user.username %></li>
+            <li><%= link_to 'my profile', user_path(current_user.id) %></li>
+            <li><%= link_to 'logout', logout_path, :method => :delete, :data => { :confirm => 'are you sure?' } %></li>
+          </ul>
+        </nav>
+
+    </div>
+
+    <div class="side_bar">
+      <nav>
+        <ul>
+          <li><%= link_to 'Newsfeed', root_path %></li>
+          <li><%= link_to 'Browse Global', browse_global_path %></li>
+          <li><%= link_to 'My livelists', manage_lists_path %></li>
+          <li><%= link_to 'Friends', friends_path %></li>
+        </ul>
+      </nav>
+    </div>
+
   <% end %>
-
-  <nav>
-    <ul>
-      <li><%= link_to 'home', root_path %></li>
-      <% if logged_in? %>
-      <li><%= link_to 'my profile', user_path(current_user.id) %></li>
-      <li><%= link_to 'logout', logout_path, :method => :delete, :data => { :confirm => 'are you sure?' } %></li>
-      <% else %>
-      <li><%= link_to 'login', login_path %></li>
-      <% end %>
-    </ul>
-  </nav>
-
-  <nav>
-    <ul>
-      <li><%= link_to 'Newsfeed', root_path %></li>
-      <li><%= link_to 'Browse Global', browse_global_path %></li>
-      <li><%= link_to 'My livelists', manage_lists_path %></li>
-      <li><%= link_to 'Friends', friends_path %></li>
-    </ul>
-  </nav>
+  <div class="spacer"></div>
 
 <%= yield %>
 
