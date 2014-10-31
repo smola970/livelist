@@ -1,18 +1,24 @@
+<div class="friends_container">
 <h1>friends</h1>
-
-<p>Find more friends by connecting with instagram!</p>
-
-<a href="/oauth/connect">Connect with Instagram</a>
-
 <p>Following <%= current_user.all_follows.size %></p>
 
+<div class="instagram_connect">
+  <p>Find more friends by connecting with instagram!</p>
+
+  <a href="/oauth/connect">Connect with Instagram</a>
+</div>
 
 <% current_user.all_follows.each do |user| %>
-<img src="<%= User.find(user.followable_id).profile_image_url %>">
-<a href="/users/<%= User.find(user.followable_id).id %> "><%= User.find(user.followable_id).display_name %></a>
+<div class="user">
+  <img class="mini_profile_pic" src="<%= User.find(user.followable_id).profile_image_url %>">
+  <div class="user_div">
+    <p><a class="user_name" href="/users/<%= User.find(user.followable_id).id %> "><%= User.find(user.followable_id).display_name %></a> <%= link_to "Unfollow", unfollow_user_path(user), :method => 'delete' %></p>
+  </div>
+</div>
 <% end %>
 
 <% if current_user.follow_count == 0 %>
   <p>You aren't following anyone yet. Connect with you friends who are using this app through instagram!</p>
 <% end %>
 
+</div>

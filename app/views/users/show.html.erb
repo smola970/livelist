@@ -17,60 +17,91 @@
 
         <nav>
           <ul>
-            <li class="current_user">logged in as <%= current_user.username %></li>
+            <li class="current_user"><%= link_to "logged in as #{current_user.username}", edit_user_path(current_user.id) %></li>
             <li><%= link_to 'my profile', user_path(current_user.id) %></li>
             <li><%= link_to 'logout', logout_path, :method => :delete, :data => { :confirm => 'are you sure?' } %></li>
           </ul>
         </nav>
 
     </div>
+    <div class="spacer"></div>
 
 <div>
-  <img src="<% @user.cover_image_url %>" alt="">
-  <% if current_user.id == @user.id %>
-  <button>Change Cover Photo</button>
+  <div class="cover_image">
+    <img src="<%= @user.cover_image_url %>" alt="">
+
+  </div>
+  <div class="header_info">
+    <% if current_user.id == @user.id %>
+    <a href="<%= edit_user_path(current_user.id) %>"><button class="change_cover">Change Cover Photo</button></a>
+      <% end %>
+      <% if current_user.id == @user.id %>
+      <a href="<%= edit_user_path(current_user.id) %>"><button class="change_button" id="change_profile_pic">Change Profile Picture</button></a>
+      <% end %>
+    <div>
+      <div class="profile_picture">
+        <img src="<%= @user.profile_image_url %>" alt="">
+      </div>
+
+    </div>
+
+    <h1><%= @user.display_name %></h1>
+
+      <% if current_user.following?(@user) == false %>
+        <p><%= link_to "Follow", follow_user_path(@user), :method => 'post' %></p>
+      <% else %>
+        <p><%= link_to "Unfollow", unfollow_user_path(@user), :method => 'delete' %></p>
+      <% end %>
+
+    <br>
+    <p>Following: <%= @user.follow_count %></p>
+    <p>Followers: <%= @user.followers.count %></p>
+  </div>
+
+</div>
+
+<div class="user_lists">
+  <h3><%= @user.display_name %>'s livelists:</h3>
+
+  <% @lists.each do |list| %>
+    <p><%= list.name %></p>
   <% end %>
 </div>
-<div>
-  <img src="<%= @user.profile_image_url %>" alt="">
-  <% if current_user.id == @user.id %>
-  <button>Change Profile Picture</button>
+
+<div class="goals_complete">
+  <h3><%= @user.display_name %>'s acheivements</h3>
+  <% @goals_completed.each do |goal| %>
+    <div class="activity">
+      <div class="show_image">
+        <img src="<%= goal.image_url %>" alt="">
+      </div>
+      <div class="photo_info">
+        <div class="user">
+          <img class="mini_profile_pic" src="<%= user = User.where(:id => goal.user_id).first.profile_image_url %>" alt="">
+          <div class="user_div">
+            <a class="user_name" href="/users/<%= User.where(:id => goal.user_id).first.id %>"><%= user = User.where(:id => goal.user_id).first.display_name %></a>
+          </div>
+        </div>
+        <p><i class="fa fa-check-square"></i> <%= goal.text %> <a class="add" href="/goals/<%= goal.id %>/clone"><i class="fa fa-plus"></i> add</a></p>
+      </div>
+    </div>
   <% end %>
-</div>
+  </div>
 
-<h1><%= @user.display_name %></h1>
-
-<p>Following: <%= @user.follow_count %></p>
-<p>Followers: <%= @user.followers.count %></p>
-
-<p>Lists:</p>
-
-<% @lists.each do |list| %>
-  <p><%= list.name %></p>
-<% end %>
-
-<p>Goals to do:</p>
-
-<% @goals_to_do.each do |goal| %>
-  <p><%= goal.text %></p>
-  <p><%= link_to 'show', goal %></p>
-  <p><%= link_to 'add', "/goals/#{goal.id}/clone" %></p>
-<% end %>
-
-<p>Goals Completed:</p>
-<% @goals_completed.each do |goal| %>
-  <img src="<%= goal.image_url %>" alt="">
-  <p><%= goal.text %></p>
-  <p><%= link_to 'show', goal %></p>
-  <p><%= link_to 'add', "/goals/#{goal.id}/clone" %></p>
-<% end %>
-
-<% if current_user.following?(@user) == false %>
-  <p><%= link_to "Follow", follow_user_path(@user), :method => 'post' %></p>
-<% else %>
-  <p><%= link_to "Unfollow", unfollow_user_path(@user), :method => 'delete' %></p>
-<% end %>
+  <div class="goals_to_do">
+    <div class="item">
+      <h3><%= @user.display_name %>'s recently added goals</h3>
+    </div>
+    <% @goals_to_do.each do |goal| %>
+      <div class="item">
+        <p><i class="fa fa-square"></i> <%= goal.text %></p>
+        <a class="add" href="/goals/<%= goal.id %>/clone"><i class="fa fa-plus"></i> add</a>
+      </div>
+    <% end %>
+  </div>
 
 </body>
 </html>
+
+
 

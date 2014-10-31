@@ -1,10 +1,21 @@
-<h1>My livelists</h1>
+<div class="live_lists_container">
+  <h1>My livelists</h1>
 
-<% @lists.each do |list| %>
-<p><%= list.name %></p>
-<p><%= link_to 'show', list %></p>
-<p><%= link_to 'edit', edit_list_path(list) %></p>
-<p><%= link_to 'delete', list, :method => :delete, :data => { :confirm => 'are you sure you want to delete this list?' } %></p>
-<% end %>
-
-<p><%= link_to 'new list', '/lists/new' %></p>
+  <div class="lists">
+    <% @lists.each do |list| %>
+      <a href="/lists/<%= list.id %>">
+        <div class="list">
+          <p class="list_name"><%= list.name %></p>
+        </div>
+        <a class="edit" href="/lists/<%= list.id %>/edit"><i class="fa fa-pencil-square-o"></i></a>
+        <p class="delete"><%= link_to 'delete', list, :method => :delete, :data => { :confirm => 'are you sure you want to delete this list?' } %></p>
+      </a>
+    <% end %>
+    <a href="/lists/new">
+      <div class="add_new">
+        <p>add new</p>
+        <i class="fa fa-plus"></i>
+      </div>
+    </a>
+  </div>
+</div>
