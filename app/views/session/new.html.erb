@@ -1,26 +1,30 @@
-
-  <div class="login_page_container">
-    <div class="login_head">
-      <h1>livelist.</h1>
-      <h2>The social app to track the things you want to do in life</h2>
-    </div>
-
-    <div class="login">
-      <%= form_tag '/login' do %>
-        <p>
-          <%= label_tag :username %>
-          <%= text_field_tag :username %>
-        </p>
-
-        <p>
-          <%= label_tag :password %>
-          <%= password_field_tag :password %>
-        </p>
-
-        <button class="login_button">Log in</button>
-      <% end %>
-
-      <a href="/sign_up"><button class="white">Sign up</button></a>
-
-    </div>
+<div class="login_page_container">
+  <div class="login_head">
+    <h1>livelist.</h1>
+    <h2>The social app to track the things you want to do in life</h2>
   </div>
+  <a href="/about">
+    <div class="about-button">
+      <p>about.</p>
+    </div>
+  </a>
+  <div class="login">
+    <%= form_tag '/login' do %>
+      <p>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
+      </p>
+      <p>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </p>
+      <button class="black_button">Log in</button>
+    <% end %>
+    <a href="/sign_up"><button class="white">Sign up</button></a>
+  </div>
+  <div id="login-hint">
+    <h3>Pssst... for a demo of the site login with:</h3>
+    <p>Username: guest</p>
+    <p>Password: opensesame</p>
+  </div>
+</div>

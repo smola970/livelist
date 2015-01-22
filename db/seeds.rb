@@ -12,13 +12,15 @@ Goal.destroy_all
 
 u = User.create username: 'lauren.smolenski' , password: 'ilovecake' , display_name: 'Lauren Smolenski' , email: 'lauren@smolenski.net.nz' , :password_confirmation => 'ilovecake'
 
-User.create username: 'test.account' , password: 'ilovecake' , display_name: 'Test Account' , email: 'test@account.net.nz' , :password_confirmation => 'ilovecake'
+User.create username: 'paddy.hew' , password: 'ilovecake' , display_name: 'Paddy Hew' , email: 'paddy@hew.net.nz' , :password_confirmation => 'ilovecake'
+
+User.create username: 'guest' , password: 'opensesame' , display_name: 'Guest Account' , email: 'guest@account.net.nz' , :password_confirmation => 'opensesame'
 
 %w(travel adventure career fitness/health self-development spiritual ethical/community romance other ).each do |name|
-    Category.create name: name
-  end
+  Category.create name: name
+end
 
- l = List.create name: 'Travel', :user_id => u.id
+l = List.create name: 'Travel', :user_id => u.id
 
 Goal.create text: 'Eat gelato in Rome', user_id: u.id, list_id: l.id, category_id: Category.first, complete: true, image_url: 'http://media-cache-ak0.pinimg.com/736x/05/ca/f0/05caf027a89b8d481c8e87555432b3ad.jpg', caption: 'So delicious'
 
@@ -37,7 +39,6 @@ Goal.create text: 'Yacht week', user_id: u.id, list_id: l.id, category_id: Categ
 Goal.create text: 'Oktoberfest', user_id: u.id, list_id: l.id, category_id: Category.first, complete: true, image_url: 'http://media-cache-cd0.pinimg.com/736x/36/d2/6e/36d26e2d395047b9d7b53616b2bd0310.jpg', caption: "Crazy day, beer was had"
 
 Goal.create text: 'Ride a hot air balloon in Turkey', user_id: u.id, list_id: l.id, category_id: Category.first, complete: true, image_url: 'http://media-cache-ak0.pinimg.com/736x/df/94/74/df94744fe35222818ea505d8ec436fd6.jpg', caption: "Sunrises will never be the same"
-
 
 Goal.create text: 'Shop in New York', user_id: u.id, list_id: l.id, category_id: Category.first, complete: false
 
@@ -58,11 +59,3 @@ Goal.create text: 'Motorbike through Vietnam', user_id: u.id, list_id: l.id, cat
 Goal.create text: 'Visit a concentration camp', user_id: u.id, list_id: l.id, category_id: Category.first, complete: false
 
 Goal.create text: 'Go to a real dinosaur museum', user_id: u.id, list_id: l.id, category_id: Category.first, complete: false
-
-
-
-
-
-
-
-

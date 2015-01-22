@@ -1,10 +1,5 @@
 class GoalsController < ApplicationController
 
-  def index
-    # @goals = Goal.where(:list_id => params[:id])
-    # @list = List.where(params[:id])
-  end
-
   def show
     @goal = Goal.find(params[:id])
   end
@@ -28,7 +23,6 @@ class GoalsController < ApplicationController
 
   def new_clone
     @count = List.where(:user_id => current_user.id).count
-
     @goal = Goal.find(params[:id])
     @goal_clone = Goal.new
   end
@@ -86,10 +80,7 @@ class GoalsController < ApplicationController
   end
 
   private
-
   def goal_params
     params.require(:goal).permit(:text, :category_id, :image_url, :caption )
   end
 end
-
-

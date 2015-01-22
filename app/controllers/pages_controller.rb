@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  skip_before_action :authenticate
   def index
     following_users = current_user.all_follows
     following_ids = []
@@ -10,32 +10,15 @@ class PagesController < ApplicationController
     @goals = Goal.where(:user_id => following_ids)
     @goals_to_do = @goals.where(:complete => false).order("created_at").reverse
     @goals_completed = @goals.where(:complete => true).order("updated_at").reverse
-
   end
 
   def about
   end
 
   def browse_global
-
     @goals = Goal.all
     @goals_to_do = Goal.where(:complete => false).order("created_at").reverse
     @goals_completed = Goal.where(:complete => true).order("updated_at").reverse
-  end
-
-  def friends
-
-
-    # following_users = current_user.all_follows
-    # following_ids = []
-    # following_users.each do |user|
-    #   following_ids << user.followable_id
-    # end
-    # @friends =[]
-    # following_ids.each do |id|
-    # @friends << User.where(:user_id => id)
-
-    #end
   end
 
   def follow_friends
@@ -50,20 +33,4 @@ class PagesController < ApplicationController
     end
     @count = @friends_to_follow.count
   end
-
-
-
-    #     livelist_friends = User.where(:id => followes_ids)
-
-# instagram_friends = client.user_follows.map{|f| f.username}
-
-
-# Users.all.each do |user|
-#   if instagram_friends.include? user.instagram_username
-#   current_user.follow(user)
-#     
-#   end
-# end
-
-
 end

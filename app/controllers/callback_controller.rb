@@ -1,6 +1,5 @@
 class CallbackController < ApplicationController
 
-
   def auth
     '<a href="/oauth/connect">Connect with Instagram</a>'
   end
@@ -9,12 +8,9 @@ class CallbackController < ApplicationController
     Instagram.configure do |config|
       config.client_id = "b76260d1f4c14d6ebbaaa66890fdeb8a"
       config.client_secret = "d4ebeb21e23f492abf1488984bed080d"
-      # For secured endpoints only
-      #config.client_ips = '<Comma separated list of IPs>'
     end
     callback_url = "http://localhost:3000/oauth/callback"
     redirect_to Instagram.authorize_url(:redirect_uri => callback_url)
-
   end
 
   def callback
@@ -27,9 +23,7 @@ class CallbackController < ApplicationController
     current_user.save
     session[:access_token] = response.access_token
     redirect_to '/follow_friends'
-
   end
-
 
   # get "/oauth/connect" do
   #   redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
@@ -41,15 +35,4 @@ class CallbackController < ApplicationController
   #   redirect "/nav"
   # end
 
-
 end
-
-
-    # config.client_id = "b76260d1f4c14d6ebbaaa66890fdeb8a"
-
-    # config.access_token = "1542200907.b76260d.73f500b6f24d41d3a12d12e38ab52180"
-
-
-
-
-
