@@ -1,0 +1,98 @@
+.goals_complete {
+  width: 61%;
+  display: inline-block;
+  margin-left: 205px;
+  border-right: solid 1px rgba(0, 0, 0, 0.5);
+  font-family: 'Open Sans', sans-serif;
+  padding-right: 0;
+}
+
+.activity {
+  margin-left: 1.5%;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  margin-top: 15px;
+  width: 26.5%;
+  display: inline-block;
+  padding: 2%;
+  vertical-align: top;
+}
+.photo_info {
+  height: 60px;
+}
+
+.goals_complete p {
+  margin: 0;
+  font-family: 'Indie Flower', cursive;
+}
+
+.show_image {
+  width: 100%;
+  display: inline-block;
+  padding-bottom: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.show_image img {
+  width: 100%;
+}
+
+.goals_to_do {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 1%;
+}
+
+.goals_to_do .item {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
+}
+
+.goals_to_do div a {
+  text-decoration: none;
+  color: grey;
+}
+
+.user_div {
+  vertical-align: top;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.goals_to_do div p {
+  font-size: 0.9em;
+  display: inline-block;
+  margin: 0;
+}
+
+.add {
+  font-size: 0.8em;
+  display: inline-block;
+  text-decoration: none;
+  color: grey;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add:hover {
+  color: rgba(50,50,50,1);
+}
+
+.mini_profile_pic {
+  height: 30px;
+}
+
+.user_name {
+  text-decoration: none;
+  color: grey;
+  font-size: 0.8
+}
+
+.user_name:hover {
+  color: rgba(50,50,50,1);
+}
+.newsfeed_container {
+  width: 100%;
+  margin-bottom: 5em;
+}

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, :only => [:about]
   def index
     following_users = current_user.all_follows
     following_ids = []
