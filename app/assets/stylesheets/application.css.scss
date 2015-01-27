@@ -1,0 +1,154 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans|Indie+Flower);
+ @import "login";
+ @import "about";
+ @import "adminframe";
+ @import "newsfeeds";
+ @import "livelist_management";
+
+html, body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.friends_container {
+  width: 80%;
+  margin-left: 230px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.instagram_connect {
+  background-color: rgba(0, 0, 0 , 0.8);
+  color: white;
+  padding: 30px;
+}
+
+.goal_container {
+  margin-left: 230px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.goal_container button {
+  background-color: rgba(0, 0, 0 , 0.8);
+  color: white;
+  border: solid 1px black;
+}
+
+.cover_image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background-color: rgba(0, 0, 0 , 0.2);
+}
+
+.cover_image img {
+  width: 100%;
+}
+
+.header_info {
+  height: 300px;
+  width: 100%;
+  z-index: 0;
+  margin-top: -300px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center
+}
+
+.profile_picture {
+  height: 0px;
+  width: 12%;
+  overflow: hidden;
+  z-index: 0;
+  padding-bottom: 12%;
+  border: solid 2px white;
+  margin: 30px auto 0 auto;
+}
+
+.profile_picture img {
+  width: 100%;
+}
+
+.change_button {
+  background-color: rgba(0, 0, 0 , 0.8);
+  color: white;
+  border: solid 1px black;
+  z-index: 0;
+  margin-top: -230px;
+}
+
+.change_button:hover {
+  background-color: rgba(100, 100, 100 , 0.8)
+}
+
+.change_cover {
+  margin-top: -250px;
+    background-color: rgba(0, 0, 0 , 0.8);
+  color: white;
+  border: solid 1px black;
+  z-index: 0;
+}
+
+.change_cover:hover {
+  background-color: rgba(100, 100, 100 , 0.8)
+}
+
+.header_info h1 {
+  text-align: center;
+  color: white;
+  margin-top: 0;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.header_info p {
+  display: inline-block;
+  margin-top: -130px;
+  position: relative;
+}
+
+.header_info a {
+  margin: 0;
+}
+
+.user_lists {
+  float: left;
+  position: fixed;
+  width: 200px;
+  font-family: 'Open Sans', sans-serif;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.instagram_connect a {
+  color: blue;
+}
+
+.header_info button {
+  position: relative;
+  display: inline-block;
+  margin-bottom: -30px;
+}
