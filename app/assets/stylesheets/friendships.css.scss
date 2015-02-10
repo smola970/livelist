@@ -1,3 +1,39 @@
 // Place all the styles related to the Friendships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.friends_container {
+  width: 80%;
+  margin-left: 230px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.instagram_connect {
+  background-color: rgba(0, 0, 0 , 0.2);
+  padding: 30px;
+  width: 80%;
+}
+
+.instagram_connect img {
+  height: 8em;
+  width: 8em;
+  margin-left: 5em;
+  margin-right: 7em;
+}
+
+.instagram_connect div {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.1em;
+}
+
+.instagram_connect_button {
+  background-color: rgba(0, 154, 0, 1);
+  color: white;
+  display: inline-block;
+  padding: 1em 4.7em;
+}
+
+.instagram_connect_button:hover {
+  background-color: rgba(0, 120, 0, 1);
+}

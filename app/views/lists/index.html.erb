@@ -4,7 +4,11 @@
   <div class="lists">
     <% @lists.each do |list| %>
       <a href="/lists/<%= list.id %>">
-        <div class="list" style="background-image: url(<%= list.goals.where(:complete => true).last.image_url %>); background-size: contain;">
+        <% if list.goals.where(:complete => true).count >= 1 %>
+          <div class="list" style="background-image: url(<%= list.goals.where(:complete => true).last.image_url %>); background-size: contain;">
+        <% else %>
+          <div class="list">
+        <% end %>
           <p class="list_name"><%= list.name %></p>
           <a class="edit" href="/lists/<%= list.id %>/edit"><i class="fa fa-pencil-square-o"></i></a>
           <img src="" alt="">

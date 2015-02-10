@@ -13,12 +13,13 @@
  *= require_self
  */
 
- @import url(http://fonts.googleapis.com/css?family=Open+Sans|Indie+Flower);
+ @import url(//fonts.googleapis.com/css?family=Open+Sans|Indie+Flower);
  @import "login";
  @import "about";
  @import "adminframe";
  @import "newsfeeds";
  @import "livelist_management";
+ @import "friendships";
 
 html, body {
   border: 0;
@@ -31,18 +32,6 @@ html, body {
 a {
   text-decoration: none;
   color: black;
-}
-
-.friends_container {
-  width: 80%;
-  margin-left: 230px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.instagram_connect {
-  background-color: rgba(0, 0, 0 , 0.8);
-  color: white;
-  padding: 30px;
 }
 
 .goal_container {

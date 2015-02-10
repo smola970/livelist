@@ -5,7 +5,7 @@
     <% @goals_completed.each do |goal| %>
       <div class="activity">
         <div class="show_image">
-          <img src="<%= goal.image_url %>" alt="">
+          <%= link_to image_tag(goal.image_url), goal %>
         </div>
         <div class="photo_info">
           <div class="user">

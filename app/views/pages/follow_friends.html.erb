@@ -1,22 +1,24 @@
-<h1>Follow friends</h1>
+<div class="friends_container">
+  <h1>Follow friends</h1>
 
-<% if @count == 1 %>
-  <p><%= @count %> friend found</p>
-<% else %>
-  <p><%= @count %> friends found</p>
-<% end %>
-
-
-<% if @count > 0 %>
-  <% @friends_to_follow.each do |f| %>
-    <img src="<%= f.profile_image_url %>" alt="">
-    <p><%= f.display_name %></p>
-    <% if current_user.following?(f) == false %>
-      <p><%= link_to "Follow", follow_user_path(f), :method => 'post' %></p>
-    <% else %>
-      <p><%= link_to "Unfollow", unfollow_user_path(f), :method => 'delete' %></p>
-    <% end %>
+  <% if @count == 1 %>
+    <p><%= @count %> friend found</p>
+  <% else %>
+    <p><%= @count %> friends found</p>
   <% end %>
-<% else %>
-  <p>You're a trail blazer! None of your friends are using this app yet. Tell them to sign up!</p>
-<% end %>
+
+
+  <% if @count > 0 %>
+    <% @friends_to_follow.each do |f| %>
+      <img src="<%= f.profile_image_url %>" alt="">
+      <p><%= f.display_name %></p>
+      <% if current_user.following?(f) == false %>
+        <p><%= link_to "Follow", follow_user_path(f), :method => 'post' %></p>
+      <% else %>
+        <p><%= link_to "Unfollow", unfollow_user_path(f), :method => 'delete' %></p>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>You're a trail blazer! None of your friends are using this app yet. Tell them to sign up!</p>
+  <% end %>
+</div>
